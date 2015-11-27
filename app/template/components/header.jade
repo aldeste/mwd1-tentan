@@ -17,27 +17,28 @@ header.header
       svg.header__logo
         use(xlink:href='#icon-logo')
   nav.header__nav.header__nav--offcanvas(role='navigation')
-    input#filter-switch.switch(type='checkbox')
-    label.header__action(for='filter-switch')
-      | Filter albums
-    div.header__dropdown
-      input#select-music-switch.switch(type='checkbox')
-      label.header__action(for='select-music-switch')
-        | Select music language
+    div.nav__container
+      input#filter-switch.switch(type='checkbox')
+      label.header__action(for='filter-switch')
+        | Filter albums
       div.header__dropdown
-        label.header__action(for='lang-all')
-          | Show all
-        label.header__action(for='lang-it')
-          | Italian
-        label.header__action(for='lang-fr')
-          | French
-        label.header__action(for='lang-es')
-          | Spanish
-        label.header__action(for='lang-mn')
-          | Mongolian
-    label.header__action(for='suggest-music-switch')
-      | Suggest music
-    a.header__action(href="landing.html") About
+        input#select-music-switch.switch(type='checkbox')
+        label.header__action(for='select-music-switch')
+          | Select music language
+        div.header__dropdown
+          label.header__action(for='lang-all')
+            | Show all
+          label.header__action(for='lang-it')
+            | Italian
+          label.header__action(for='lang-fr')
+            | French
+          label.header__action(for='lang-es')
+            | Spanish
+          label.header__action(for='lang-mn')
+            | Mongolian
+      label.header__action(for='suggest-music-switch')
+        | Suggest music
+      a.header__action(href="landing.html") About
 section.billboard.billboard--attention
   div.billboard__content
     h1.billboard__title Suggest music

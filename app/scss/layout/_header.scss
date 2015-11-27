@@ -11,8 +11,7 @@
   background: map-get($color-defs, header);
 }
 
-.header__nav--head,
-.header__nav--basic {
+.header__nav--head {
   @extend %margin-top-off-on-children;
   top: 0;
   width: 100vw;
@@ -26,19 +25,25 @@
 }
 
 .header__nav--basic {
+  @extend .header__nav--head;
   flex-flow: row-reverse;
 }
 
 .header__nav--offcanvas {
-  @extend %flex-flow__column-nowrap;
   top: ratio(2, rem);
   left: -#{ratio(6, rem)};
-  overflow: scroll;
   width: 70vw;
   max-width: ratio(6, rem);
-  height: 100vh;
-  padding: ratio(1, rem);
+  height: calc(100vh - #{ratio(2, rem)});
   transition: all 400ms ease-in-out;
+}
+
+.nav__container {
+  @extend %flex-flow__column-nowrap;
+  @extend %flex;
+  overflow-y: scroll;
+  padding: ratio(-1, rem) ratio(1, rem);
+  flex: 1 100vw;
 }
 
 .switch:checked ~ .header__nav--offcanvas {
@@ -76,11 +81,14 @@
 }
 
 .switch:checked ~ .header__dropdown {
-  @extend %margin-top;
-  overflow: scroll;
+  overflow-y: scroll;
   min-height: ratio(4, rem);
   opacity: 1;
   flex: 1;
+
+  .header__action {
+    @extend %margin-top;
+  }
 }
 
 .header__form {
