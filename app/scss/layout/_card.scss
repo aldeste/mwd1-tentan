@@ -99,6 +99,11 @@ $card-colors: 6;
     position: absolute;
     top: .23em;
     left: -1.2em;
+
+    @include media('>=small') {
+      top: .80em;
+      left: .3em;
+    }
   }
 }
 
