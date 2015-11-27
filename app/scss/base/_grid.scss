@@ -38,16 +38,24 @@
   }
 }
 
+@mixin flex-flow($direction, $wrap: wrap) {
+  flex-flow: $direction $wrap;
+}
+
 %flex-flow__column-wrap {
-  flex-flow: column wrap;
+  @include flex-flow(column)
 }
 
 %flex-flow__column-nowrap {
-  flex-flow: column nowrap;
+  @include flex-flow(column, nowrap)
 }
 
 %flex-flow__row-wrap {
-  flex-flow: row wrap;
+  @include flex-flow(row)
+}
+
+%flex-flow__row-nowrap {
+  @include flex-flow(row, nowrap)
 }
 
 %grid--space-around {
