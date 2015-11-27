@@ -17,9 +17,10 @@
   margin-top: 0;
 }
 
-%wrap {
-  max-width: #{map-get($container, xlarge)}px;
-  flex: 0 86.292vw;
+.wrap {
+  @extend %margin-top-off;
+  @extend %flex;
+  @extend %flex-flow__column-nowrap;
 }
 
 // flexbox based grid system.
@@ -111,6 +112,7 @@ $columns: 3;
   }
 }
 
+.order--last,
 %priority--last {
   @include media('>=small') {
     order: 10;
