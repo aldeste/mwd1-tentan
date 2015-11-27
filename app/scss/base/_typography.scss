@@ -1,0 +1,82 @@
+// Set base font size on html for easiest REM use. Set it in em to respect
+// user preferences. The calculation takes the user defined root px sie, divides
+// it by 16, which is the most common browser default, and returns teh em
+// equalent of the user defined root px size in ems.
+:root {
+  font-size: #{unitless(map-get($text, root) / 16)}em;
+}
+
+// Instill body constants. Font is declared with 1rem fontsize to allow the
+// usage of the font shorthant, saves having to list all font properties,
+// but font size is defined in the :root elelemt above.
+body {
+  font: 400 #{1rem} / #{line-height-harmony(1, map-get($container, small))} map-get($font, body);
+  color: map-get($color-defs, text);
+  -webkit-tap-highlight-color: map-get($color, bright);
+}
+
+p,
+li,
+input,
+textarea,
+select,
+label {
+  font-weight: inherit;
+  color: inherit;
+  font-kerning: normal;
+  font-variant-ligatures: normal;
+}
+
+%text--largest,
+%text--larger,
+%text--large,
+%text--headline {
+  font: 300 #{map-get($text, large)}rem / #{line-height-harmony(map-get($text, large), map-get($container, small))} map-get($font, headline);
+  letter-spacing: -.03em;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+}
+
+%text--small {
+  font-size: (ratio(1) / 2)#{rem};
+}
+
+%text--normal {
+  font-size: 1rem;
+}
+
+%text--larger {
+  @include media('>=small') {
+    font-size: #{map-get($text, larger)}rem;
+  }
+}
+
+%text--largest {
+  font-size: #{map-get($text, larger)}rem;
+
+  @include media('>=small') {
+    font-size: #{map-get($text, largest)}rem;
+  }
+}
+
+%bright-text-color {
+  color: map-get($color, bright);
+}
+
+%medium-grey-text-color {
+  color: map-get($color, medium-grey);
+}
+
+// bold font defined here, so font is easily exchangable and to avoid faux bold
+%text--bold {
+  font-weight: 700;
+}
+
+// Will only be spoken by screen readers.
+%text--speak {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+}

@@ -1,0 +1,135 @@
+// scss-lint:disable ColorVariable
+
+// Common Ratios
+// Followed by common rational ratios.
+$ratio: (
+  quarat: 1,
+  hemidiagon: 1.1180339887498948,
+  trion: 1.1547005383792515,
+  quadriagon: 1.2071067811865475,
+  biauron: 1.2360679774997896,
+  penton: 1.2720196495141103,
+  diagon: 1.414213562373095,
+  bipenton: 1.458,
+  hemiolion: 1.5,
+  auron: 1.618033988749894,
+  hecton: 1.7320508075688773,
+  doppelquadrat: 2,
+  golden-ratio: 1.618033988749894,
+  unison: 1,
+  minor-second: 1.067,
+  major-second: 1.125,
+  minor-third: 1.2,
+  major-third: 1.25,
+  perfect-fourth: 1.333,
+  autmented-fourth: 1.414,
+  diminished-fifth: 1.414,
+  perfect-fifth: 1.5,
+  minor-sixth: 1.6,
+  major-sixth: 1.667,
+  minor-seventh: 1.778,
+  major-seventh: 1.875,
+  octave: 2,
+  major-tenth: 2.5,
+  major-eleventh: 2.667,
+  major-twelfth: 3,
+  double-octave: 4
+) !default;
+
+$harmonic-ratio: map-get($ratio, golden-ratio);
+
+// TYPOGRAPHY
+
+$text: (
+  root: 18px,
+  small: 1 / $harmonic-ratio,
+  large: ratio(1),
+  larger: ratio(2),
+  largest: ratio(3)
+) !default;
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400&subset=latin,latin-ext);
+
+$font: (
+  body: unquote("'Roboto', 'Helvetica Neue', Arial, sans-serif"),
+  headline: unquote("'Roboto Condensed', sans-serif")
+) !default;
+
+$line-height-harmony-settings: (
+  ratio: $harmonic-ratio,
+  font-size-root: map-get($text, root),
+  font-size-unit: 'rem',
+  width-unit: 'px'
+);
+
+// COLORS //
+$color: (
+  main: #a9201c,
+  dark-main: #5d1b19,
+  bright-main: #a9413e,
+  accent: #0ba941,
+  dark-accent: #255d38,
+  bright-accent: #3fcc6f,
+  dark: rgba(60, 50, 43, 1),
+  medium-grey: rgb(84, 75, 69),
+  bright-grey: rgba(20, 13, 10, .2),
+  bright: rgba(240, 238, 236, .8),
+  brightest: #f9f9ff,
+) !default;
+
+$color-defs: (
+  header: map-get($color, bright),
+  header-text: map-get($color, dark),
+  footer: map-get($color, dark),
+  footer-text: map-get($color, bright),
+  text: map-get($color, dark),
+) !default;
+
+$color-social: (
+    bandcamp: #4e9bac,
+    delicious: #248cff,
+    facebook: #3b5998,
+    ficly: #b51c2c,
+    flickr: #0063db,
+    github: #4183c4,
+    googleplus: #dd4b39,
+    instagram: #517fa4,
+    kickstarter: #76cc1e,
+    lanyrd: #152e51,
+    lastfm: #d51007,
+    linkedin: #007bb6,
+    photodrop: #cdb6e3,
+    pinterest: #cb2027,
+    rdio: #0088da,
+    soundcloud: #f60,
+    twitter: #00aced,
+    vimeo: #aad450,
+    youtube: #b00
+);
+
+$container: (
+  mini: 388,
+  small: 628,
+  medium: 751,
+  large: 1016,
+  xlarge: 1215
+) !default;
+
+
+// BREAKPOINTS
+// No need for "only screen and" in media query defenition, display and deliver same content to print and screen, don't hide from old browsers.
+// Use size based names, not device based names.
+$breakpoints: (
+  xmini: map-get($container, mini),
+  mini: map-get($container, mini) + 50px,
+  small: map-get($container, small) + 80px,
+  medium: map-get($container, medium) + 80px,
+  large: map-get($container, large) + 80px,
+  xlarge: map-get($container, xlarge) + 80px
+);
+
+// SETTINGS
+// Normalizer
+$lobotomized-owl: true;
+$oldest-supported-ie-version: 9;

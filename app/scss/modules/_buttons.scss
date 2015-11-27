@@ -1,0 +1,64 @@
+// 1. Removes super sensetive selection on touch interfaces
+%button {
+  @extend %has-shadow-focus-effect;
+  cursor: pointer;
+  user-select: none; // 1
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-transform: uppercase;
+  border: 0;
+}
+
+%button--medium {
+  padding: ratio(-2, rem) ratio(1, rem);
+}
+
+%button--large {
+  padding: ratio(-1, em) ratio(2, em);
+}
+
+%button--img {
+  @extend %img--background;
+}
+
+%button--action {
+  @extend %button;
+  background: map-get($color, dark-main);
+}
+
+%button--action:hover,
+%button--action:focus {
+  background: lighten(map-get($color, dark-main), 10);
+}
+
+%button--action:active {
+  background: lighten(map-get($color, dark-main), 15);
+}
+
+%button--action--outline {
+  @extend %button;
+  border: solid ratio(-4, rem) map-get($color, dark-main);
+}
+
+%button--action--outline:hover,
+%button--action--outline:focus {
+  border-color: lighten(map-get($color, dark-main), 10);
+}
+
+%button--action--outline:active {
+  border-color: lighten(map-get($color, dark-main), 15);
+}
+
+%button--decline {
+  background: map-get($color, bright-accent);
+}
+
+%button--decline:hover,
+%button--decline:focus {
+  background: lighten(map-get($color, bright-accent), 10);
+}
+
+%button--decline:active {
+  background: lighten(map-get($color, bright-accent), 15);
+}

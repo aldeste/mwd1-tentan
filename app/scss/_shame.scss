@@ -1,0 +1,17 @@
+// For testing, or for quick fix on top of other things.
+
+// Top margins off should be extended, not used as a class.
+.top-margin-off-on-children > *,
+.top-margin-off {
+  margin-top: 0;
+}
+
+// Displays borders around everything.
+.borders * {
+  border: 1em solid map-get($color, bright);
+}
+
+// Clearfix shouldn't be a class, it should be extended on need.
+.clearfix {
+  @extend %has-clearfix;
+}

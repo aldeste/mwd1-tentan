@@ -1,0 +1,53 @@
+input#lang-all.switch(type="radio" name="language" value="all" checked="checked")
+input#lang-it.switch(type="radio" name="language" value="it" lang="it")
+input#lang-fr.switch(type="radio" name="language" value="fr" lang="fr")
+input#lang-mn.switch(type="radio" name="language" value="mn" lang="mn")
+input#lang-es.switch(type="radio" name="language" value="es" lang="es")
+input#suggest-music-switch.switch(type='checkbox')
+header.header
+  input#hamburger__checkbox.switch(type='checkbox')
+  nav.header__nav.header__nav--head
+    label.header__action(for='hamburger__checkbox')
+      | menu
+      span.hamburger
+        span.hamburger-icon
+    form.header__form(action='#')
+      input.header__input#search(name='search', placeholder='search', type='search', autofocus)
+    a.header__action(href='landing.html')
+      svg.header__logo
+        use(xlink:href='#icon-logo')
+  nav.header__nav.header__nav--offcanvas(role='navigation')
+    input#filter-switch.switch(type='checkbox')
+    label.header__action(for='filter-switch')
+      | Filter albums
+    div.header__dropdown
+      input#select-music-switch.switch(type='checkbox')
+      label.header__action(for='select-music-switch')
+        | Select music language
+      div.header__dropdown
+        label.header__action(for='lang-all')
+          | Show all
+        label.header__action(for='lang-it')
+          | Italian
+        label.header__action(for='lang-fr')
+          | French
+        label.header__action(for='lang-es')
+          | Spanish
+        label.header__action(for='lang-mn')
+          | Mongolian
+    label.header__action(for='suggest-music-switch')
+      | Suggest music
+    a.header__action(href="landing.html") About
+section.billboard.billboard--attention
+  div.billboard__content
+    h1.billboard__title Suggest music
+    p.billboard__text We're really happy to accept music suggestions. Anything is welcome, but only music considered at least half decent by us will be posted. All albums suggested must also be available on Apple Music.
+    form.billboard__form(action='#')
+      label.form__label(for='text') What to dou want to say?
+      textarea#text.form__input(placeholder="This band is great!", required=true)
+      label.form__label(for='email') Your email
+      input#email.form__input(type='email', placeholder="you@domain.com", required=true)
+      button.billboard__cta
+        | Send suggestion
+      label.billboard__button--decline(for='suggest-music-switch')
+        | Cancel

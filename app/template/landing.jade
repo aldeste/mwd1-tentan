@@ -1,0 +1,28 @@
+extends components/template
+
+block header
+  include components/header-simple
+
+block content
+  section.billboard.billboard--default
+    article.billboard__content
+      h1.billboard__title Music. Simple.
+      p Music is universal, yet there's a certain focus insisted upon music performed in English. While there are some great bands performing in English, we've set out to diversify. We propose music performed in any other language.
+      a.billboard__cta(href="index.html") Get to it
+
+  section.billboard.billboard--default
+    article.billboard__content
+      h1.billboard__title Learning a language?
+      P When learning a language it can be difficult to get into a new rhythm. By listening to the language you'll polish the learning curve. This makes it easier to overcome obstacles and you get used to the language.
+
+  section.billboard.billboard--default
+    article.billboard__content
+      h1.billboard__title Suggest music
+      p We're really happy to accept music suggestions. Anything is welcome, but only music considered at least half decent by us will be posted. All albums suggested must also be available on Apple Music.
+      form.billboard__form(action='#')
+        label(for='text') What to dou want to say?
+        textarea#text.form__input(placeholder="This band is great!")
+        label(for='email') Your email
+        input#email.form__input(type='email', placeholder="you@domain.com")
+        button.billboard__cta
+          | Send suggestion

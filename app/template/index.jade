@@ -1,0 +1,12 @@
+extends components/template.jade
+
+block content
+  section.grid--cards
+    each val in albums
+      article.card(lang=val.country.short)
+        figure.card__img-container
+          img.card__img(src="./img/#{val.picture}.jpg", alt=val.album)
+        h1.card__title= val.album
+        h2.card__subtitle= val.name
+        p.card__about(lang="en")= val.about
+        a.card__button.card__button--cta(href=val.link) get to it

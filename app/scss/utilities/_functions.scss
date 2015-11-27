@@ -1,0 +1,39 @@
+// Remove unit (PX, EM etc) from numbers
+@function unitless($number) {
+  $n: $number / ($number * 0 + 1);
+  @return $n;
+}
+
+// Convert PX to REM size.
+@function calculate-rem($px-size) {
+  $rem-size: $px-size / $font-size;
+  @return #{$rem-size}rem;
+}
+
+// Convert PX to REM unitless.
+@function calculate-headline-line-height($base-line-height, $headline-px-size) {
+  $rem-size: $headline-px-size / $font-size;
+  @return $base-line-height / $rem-size;
+}
+
+// Convert EM to PX, unitless.
+@function convert-em-to-px($unitless-em) {
+  @return $unitless-em * unitless($font-size);
+}
+
+// pow() - Raise number to the nth power
+// @param {number} $base      The base number
+// @param {number} $exponents The exponent to which to raise $base
+@function pow($base, $exponents) {
+  $raised: 1;
+  @if $exponents > 0 {
+    @for $i from 1 through $exponents {
+      $raised: $raised * $base;
+    }
+  } @else if $exponents < 0 {
+    @for $i from 1 through -$exponents {
+      $raised: $raised / $base;
+    }
+  }
+  @return $raised;
+}

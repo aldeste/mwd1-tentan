@@ -1,0 +1,35 @@
+// SHORT QUICK REUSABLE CONSTANTS
+// Readable humane names clearly explains what each class do.
+
+// Fancy color effect on focused items
+%has-shadow-focus-effect {
+  transition: all 150ms ease-in-out;
+  box-shadow: 0 0 1rem ratio(1, rem) transparent, inset 0 0 atio(1, rem) transparent;
+}
+
+%has-shadow-focus-effect:focus {
+  border-color: map-get($color, bright-accent);
+  outline: none;
+  box-shadow: 0 0 ratio(2, rem) rgba(map-get($color, accent), .2), inset 0 0 ratio(-4, rem) map-get($color, accent);
+}
+
+// Extendable rounded corners, constant rounded shapes
+%is-rounded {
+  border-radius: .2em;
+}
+
+// Common paddings, constant spacing around certain elements
+%padding--common {
+  padding: ratio(-3, rem) ratio(-2, rem);
+}
+
+%blur-behind {
+  backdrop-filter: blur(.3em);
+}
+
+%img--background {
+  background-image: url('../img/drk-ptrn.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center center;
+}

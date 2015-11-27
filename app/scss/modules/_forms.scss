@@ -1,0 +1,12 @@
+%form__input,
+.form__input {
+  @extend %padding--common;
+  @extend %is-rounded;
+  @extend %has-shadow-focus-effect;
+  display: block; // textarea
+  color: map-get($color-defs, text);
+  border: 1px solid map-get($color, bright-grey);
+  background-color: map-get($color, brightest);
+  -webkit-appearance: none; // for search fields and select
+  -moz-appearance: none; // for search fields and select
+}

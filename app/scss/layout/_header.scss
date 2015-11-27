@@ -1,0 +1,99 @@
+.header {
+  @extend %margin-top-off;
+}
+
+.header__nav {
+  @extend %margin-top-off;
+  @extend %flex;
+  @extend %blur-behind;
+  position: fixed;
+  z-index: 1000;
+  background: map-get($color-defs, header);
+}
+
+.header__nav--head,
+.header__nav--basic {
+  @extend %margin-top-off-on-children;
+  top: 0;
+  width: 100vw;
+  height: ratio(2, rem);
+  align-items: center;
+  justify-content: space-between;
+
+  .header__action {
+    padding: 0 ratio(3, vw);
+  }
+}
+
+.header__nav--basic {
+  flex-flow: row-reverse;
+}
+
+.header__nav--offcanvas {
+  @extend %flex-flow__column-nowrap;
+  top: ratio(2, rem);
+  left: -#{ratio(6, rem)};
+  overflow: scroll;
+  width: 70vw;
+  max-width: ratio(6, rem);
+  height: 100vh;
+  padding: ratio(1, rem);
+  transition: all 400ms ease-in-out;
+}
+
+.switch:checked ~ .header__nav--offcanvas {
+  left: 0;
+}
+
+.header__action,
+.header__form {
+  @extend %link;
+  color: map-get($color-defs, header-text);
+}
+
+.header__action {
+  @extend %has-shadow-focus-effect;
+  display: inline-block; // IE 10 doesn't recognize order, so we do this to
+  cursor: pointer;
+}
+
+.header__logo {
+  width: 1.5em;
+  height: 1em;
+  vertical-align: center;
+  fill: currentColor;
+}
+
+.header__dropdown {
+  @extend %flex;
+  @extend %margin-top-off;
+  @extend %flex-flow__column-nowrap;
+  overflow: hidden;
+  padding-left: ratio(1, rem);
+  transition: all 200ms ease-in-out;
+  opacity: 0;
+  flex: 0 0 0;
+}
+
+.switch:checked ~ .header__dropdown {
+  @extend %margin-top;
+  overflow: scroll;
+  min-height: ratio(4, rem);
+  opacity: 1;
+  flex: 1;
+}
+
+.header__form {
+  @extend %flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.header__input {
+  @extend %form__input;
+  flex: 0 30vw;
+}
+
+.header__input:focus {
+  flex: 0 100%;
+}

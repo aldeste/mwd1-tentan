@@ -1,0 +1,91 @@
+.billboard {
+  @extend %flex;
+  @extend %margin-top-off;
+  @extend %flex-flow__row-wrap;
+  min-height: 100vh;
+  flex: 1 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.billboard--attention {
+  display: none;
+}
+
+#suggest-music-switch:checked ~ .billboard--attention {
+  @extend %blur-behind;
+  @extend %flex;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background: darken(rgba(map-get($color, dark), .9), 15);
+
+  .billboard__content {
+    overflow: scroll;
+    max-height: 100vh; // needed to trigger overflow scroll, needed as position is fixed on back
+  }
+}
+
+.billboard--default {
+  @extend %img--background;
+  background-blend-mode: difference;
+}
+
+$billboard-colors: 3;
+@for $i from 1 to $billboard-colors + 1 {
+  .billboard--default:nth-of-type(#{$billboard-colors}n + #{$i}) {
+    background-color: adjust-hue(map-get($color, dark-main), 360 / $billboard-colors * #{$i + ($billboard-colors / 2)});
+  }
+}
+
+.billboard__content {
+  @extend %flex;
+  @extend %flex-flow__row-wrap;
+  @extend %blur-behind;
+  width: 60vw;
+  max-width: ratio(8, rem);
+  padding: ratio(3, rem);
+  background: map-get($color, bright);
+  flex: 1 ratio(7, rem);
+}
+
+
+.billboard__title {
+  @extend %text--largest;
+  flex: 1 auto;
+}
+
+.billboard__text {
+  flex: 1 auto;
+}
+
+.billboard__form {
+  @extend %flex;
+  @extend %flex-flow__column-nowrap;
+  flex: 5;
+}
+
+.billboard__cta {
+  @extend %has-shadow-focus-effect;
+  @extend %button;
+  @extend %button--large;
+  @extend %link--bright;
+  background: map-get($color, main);
+}
+
+.billboard__button--decline {
+  @extend %has-shadow-focus-effect;
+  @extend %button;
+  @extend %button--large;
+  @extend %link--bright;
+  background: map-get($color, dark);
+}
+
+// .billboard--image {
+//   background: rgba(0, 0, 0, .5) url('https://images.unsplash.com/photo-1443527216320-7e744084f5a7?fit=crop&fm=jpg&h=1150&ixlib=rb-0.3.5&q=80&w=1025') no-repeat center center fixed;
+//   background-size: cover;
+//   background-blend-mode: multiply;
+// }

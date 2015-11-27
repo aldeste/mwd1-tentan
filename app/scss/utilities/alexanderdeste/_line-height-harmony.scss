@@ -1,0 +1,121 @@
+$line-height-harmony-settings: (
+  ratio: 1.61803398875,
+  font-size-root: 16px,
+  font-size-unit: 'em',
+  width-unit: 'px'
+) !default;
+
+//
+// Returns custom or default settings value. If no default value is configured
+// returns project default, 1.61803398875.
+//
+@function line-height-harmony-get-ratio($ratio: null) {
+  @if not ($ratio == null) {
+    @return $ratio;
+  } @else if map-has-key($line-height-harmony-settings, ratio) {
+    @return map-get($line-height-harmony-settings, ratio);
+  } @else {
+    @return 1.61803398875;
+  }
+}
+
+//
+// Returns custom or default settings value. If no default value is configured
+// returns project default, 16px.
+//
+@function line-height-harmony-get-font-size-root($font-size-root) {
+  @if (map-has-key($line-height-harmony-settings, font-size-root) == true) {
+    $default: map-get($line-height-harmony-settings, font-size-root);
+    @if ($default == $font-size-root) or ($font-size-root == null) {
+      @return $default;
+    } @else {
+      @return line-height-harmony-convert-to-px($font-size-root, $default);
+    }
+  } @else {
+    @return 16px;
+  }
+}
+
+//
+// The line algorythm is based on pixel size, so we're converting presumed for use
+//
+// @param {string/number} $number             Number to convert to unitless px
+// @param {string/number} $font-size-root     Number for REM conversion.
+// @param {string}        $font-or-width      Determines which default to fall back to
+//
+@function line-height-harmony-convert-to-px($number, $font-size-root, $font-or-width: null) {
+  $unit: unit($number);
+  $number: strip-unit($number);
+  @if($font-or-width == 'font' and $unit == '') {
+    @if map-has-key($line-height-harmony-settings, font-size-unit) {
+    $unit: map-get($line-height-harmony-settings, font-size-unit);
+    } @else {
+      $unit: 'em';
+    }
+  }
+  @if($font-or-width == 'width' and $unit == '') {
+    @if map-has-key($line-height-harmony-settings, width-unit) {
+      $unit: map-get($line-height-harmony-settings, width-unit);
+    } @else {
+      $unit: 'px';
+    }
+  }
+  @if not ($unit == 'px' or $unit == 'em' or $unit == 'rem') {
+    @error "Unsupported unit used: #{$unit}.";
+  }
+  @if ($unit == em or $unit == rem) {
+    $number: $number * $font-size-root;
+  }
+  @return $number;
+}
+
+//
+// Remove unit from numbers
+//
+@function strip-unit($number) {
+  $n: $number / ($number * 0 + 1);
+  @return $n;
+}
+
+//
+// Raise number to the nth power
+//
+// @param {number} $base      The base number
+// @param {number} $exponents The exponent to which to raise $base
+//
+@function pow($base, $exponents) {
+  $raised: 1;
+  @if $exponents > 0 {
+    @for $i from 1 through $exponents {
+      $raised: $raised * $base;
+    }
+  } @else if $exponents < 0 {
+    @for $i from 1 through -$exponents {
+      $raised: $raised / $base;
+    }
+  }
+  @return $raised;
+}
+
+//
+// The line height is calculated to match relative widths to font sizes.
+//
+// The formula is from http:/*www.pearsonified.com/2011/12/golden-ratio-typography.php
+// RATIO - 1 / ( 2 * RATIO ) * ( 1 - WIDTH / ( ( FONT-SIZE * RATIO ) ^ 2 ) )
+// The formula has been simplified as such:
+// RATIO - ( - WIDTH / ( FONT-SIZE * RATIO ^ 2 + 1 ) ) / ( 2 * RATIO );
+//
+// @param {string/number} $font-size            Font size to calculate by
+// @param {string/number} $width                Width to calculate by.
+// @param {number}        $radio                Harmonic ratio used on site
+// @param {string/number} $font-size-root       PX size applied to base
+//
+@function line-height-harmony($font-size, $width, $ratio: null, $font-size-root: null) {
+  $ratio: line-height-harmony-get-ratio($ratio);
+  $font-size-root: strip-unit(line-height-harmony-get-font-size-root($font-size-root));
+
+  $font-size: line-height-harmony-convert-to-px($font-size, $font-size-root, 'font');
+  $width: line-height-harmony-convert-to-px($width, $font-size-root, 'width');
+
+  @return $ratio -(- $width / pow($font-size * $ratio, 2) + 1) / (2 * $ratio);
+}

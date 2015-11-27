@@ -1,0 +1,32 @@
+%list--default {
+  @extend %margin-top-off-on-children;
+}
+
+%list--unstyled {
+  padding: 0;
+  list-style: none;
+
+  @include media('>=small') {
+    @extend %margin-top-off-on-children;
+  }
+}
+
+%list__link--spacious {
+  display: block;
+}
+
+%list__item--spacious,
+%list__link--spacious {
+  padding: ratio(-1, em) 0;
+
+  @include media('>=small') {
+    padding: ratio(-1, em) 1em;
+  }
+}
+
+%list__form--spacious {
+  @include media('>=small') {
+    padding-right: ratio(-1, em);
+    padding-left: ratio(-1, em);
+  }
+}

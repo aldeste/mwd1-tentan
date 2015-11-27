@@ -1,0 +1,147 @@
+{
+  "albums":[
+    {
+      "name":"Uochi Toki",
+      "picture":"uochi-toki-cuore-amore-errore-disintegrazione",
+      "album":"Cuore amore errore disintegrazione",
+      "about":"Experimental rap. Italian.",
+      "link": "https://www.youtube.com/watch?v=riU86TfSxlU",
+      "country":{
+        "name":"italy",
+        "short":"it"
+      }
+    },
+    {
+      "name":"iosonouncane",
+      "picture":"iosonouncane-die",
+      "album":"die",
+      "about":"Alternative folk rock. Italian.",
+      "link": "https://www.youtube.com/watch?v=lJODaUfx7sI",
+      "country":{
+        "name":"italy",
+        "short":"it"
+      }
+    },
+    {
+      "name":"Camille",
+      "picture":"camille-ilo-veyou",
+      "album":"Ilo Veyou",
+      "about":"Experimental acapella pop. French",
+      "link": "https://www.youtube.com/watch?v=fCG_pejLOKw",
+      "country":{
+        "name":"French",
+        "short":"fr"
+      }
+    },
+    {
+      "name":"Marnero",
+      "picture":"marnero-il-sopravvissuto",
+      "album":"Il Sopravvissuto",
+      "about":"Punk flok alt-rock. Italian.",
+      "link": "https://www.youtube.com/watch?v=i8Kq0c8qTFI",
+      "country":{
+        "name":"italy",
+        "short":"it"
+      }
+    },
+    {
+      "name":"Bologna Violenta",
+      "picture":"bologna-violenta-utopie-e-piccole-soddisfazioni",
+      "album":"Utopie e Piccole Soddisfazioni",
+      "about":"Grind meets clasical. Italian.",
+      "link": "https://www.youtube.com/watch?v=hhygVKBkNV0",
+      "country":{
+        "name":"italy",
+        "short":"it"
+      }
+    },
+    {
+      "name":"Les Discrets",
+      "picture":"les-discrets-ariettes-oubliees",
+      "album":"Ariettes Oubliées",
+      "about":"Black death metal. French.",
+      "link": "https://www.youtube.com/watch?v=tvcgBgb8o0Q",
+      "country":{
+        "name":"france",
+        "short":"fr"
+      }
+    },
+    {
+      "name":"El Columpio Asesino",
+      "picture":"el_columpio_asesino_ballenas_muertas_en_san_sebastian",
+      "album":"Ballenas Muertas en San Sebastián",
+      "about":"Rock. Spanish.",
+      "link": "https://www.youtube.com/watch?v=Ufx74cax404",
+      "country":{
+        "name":"spain",
+        "short":"es"
+      }
+    },
+    {
+      "name":"Do Nascimiento",
+      "picture":"do-nascimiento-giorgio-ep",
+      "album":"Giorgio EP",
+      "about":"Punk rock. Italiano",
+      "link": "https://www.youtube.com/watch?v=1CbLlDzhR5g",
+      "country":{
+        "name":"italy",
+        "short":"it"
+      }
+    },
+    {
+      "name":"Dummo",
+      "picture":"dummo-gelo-chiama-gelo",
+      "album":"Gelo Chiama Gelo",
+      "about":"Alternative punk. Italian.",
+      "link": "https://www.youtube.com/watch?v=Siz3fs8O1tE",
+      "country":{
+        "name":"italy",
+        "short":"it"
+      }
+    },
+    {
+      "name":"Tagada Jones",
+      "picture":"tagada-jones-dissident",
+      "album":"Dissident",
+      "about":"Metal. French.",
+      "link": "https://www.youtube.com/watch?v=Lio3UryPBDU",
+      "country":{
+        "name":"french",
+        "short":"fr"
+      }
+    },
+    {
+      "name":"Tengger Cavalry",
+      "picture":"tengger-cavalry-sunesu-cavalry",
+      "album":"Sunesu Cavalry",
+      "about":"Folk metal mixer. Mongolian.",
+      "link": "https://www.youtube.com/watch?v=d2KK8lP8xGQ",
+      "country":{
+        "name":"mongolian",
+        "short":"mn"
+      }
+    },
+    {
+      "name":"Tre Allegri Ragazzi Morti",
+      "picture":"tre-allegri-ragazzi-morti-la-seconda-rivoluzione-sessuale",
+      "album":"La Seconda Rivoluzione Sessuale",
+      "about":"Alternative folk rock. Italian.",
+      "link": "https://www.youtube.com/watch?v=XD_PKV397WQ",
+      "country":{
+        "name":"italian",
+        "short":"it"
+      }
+    },
+    {
+      "name":"Mike Patton",
+      "picture":"mike-patton-mondo-cane",
+      "album":"Mondo Cane",
+      "about":"Old songs reborn. Italian.",
+      "link": "https://www.youtube.com/watch?v=RoLzqso_bsk",
+      "country":{
+        "name":"italian",
+        "short":"it"
+      }
+    }
+  ]
+}

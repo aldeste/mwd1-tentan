@@ -1,0 +1,152 @@
+.grid--cards {
+  @extend %flex;
+  @extend %flex-flow__row-wrap;
+}
+
+.card {
+  @extend %flex;
+  @extend %flex-flow__column-wrap;
+  @extend %margin-top-off;
+  padding: ratio(1, rem) 0;
+  transition: padding 400ms ease-out, transform 400ms ease-out, opacity 400ms 400ms;
+  text-align: center;
+  align-items: center;
+  flex: 1 100vw;
+
+  @include media('>=small') {
+    padding: ratio(3, rem);
+    flex: 1 calc(350px + #{ratio(3, rem)});
+  }
+}
+
+.card__img-container {
+  @extend %flex;
+  overflow: hidden;
+  max-height: 100vh;
+  align-items: center;
+}
+
+.card__img {
+  @extend %img;
+}
+
+.card__title {
+  @extend %text--large;
+  display: inline-flex;
+  align-items: flex-end;
+  flex: 1 ratio(2, em);
+}
+
+.card__subtitle {
+  @extend %text--headline;
+  @extend %text--normal;
+  @extend %margin-top-off;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: map-get($color, medium-grey);
+  flex: 1 ratio(1, em);
+}
+
+.card__title,
+.card__subtitle {
+  overflow: hidden;
+}
+
+.card__about {
+  flex: 1 ratio(2, em);
+}
+
+$card-colors: 6;
+@for $i from 1 to $card-colors + 1 {
+  .card:nth-child(#{$card-colors}n + #{$i}) .card__button {
+    background-color: adjust-hue(map-get($color, main), 360 / $card-colors * #{$i + ($card-colors / 2)});
+  }
+}
+
+.card__button--cta {
+  @extend %button--img;
+}
+
+.card__button,
+.card__button--decline {
+  @extend %button;
+  @extend %button--medium;
+  @extend %link--bright;
+  @extend %link--decoration;
+  background-blend-mode: difference;
+}
+
+.card__button--decline {
+  background-color: map-get($color, medium-grey);
+}
+
+%hide-these-cards {
+  overflow: hidden;
+  padding: 0;
+  transition: flex 0ms 400ms ease-out, padding 0ms 400ms ease-out, transform 0ms 400ms ease-out, opacity 400ms;
+  transform: scale(0, 0);
+  opacity: 0;
+  flex: 0 0 0;
+}
+
+%selected-language-option {
+  @extend %ficon;
+  @extend %ficon--check;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: .23em;
+    left: -1.2em;
+  }
+}
+
+$languages: ('it', 'es', 'fr', 'mn');
+@each $language in $languages {
+  #lang-#{$language}:checked ~ {
+    section .card:not(:lang(#{$language})) {
+      @extend %hide-these-cards;
+    }
+
+    header label[for='lang-#{$language}'] {
+      @extend %selected-language-option;
+    }
+  }
+}
+
+#lang-all:checked ~ header label[for='lang-all'] {
+  @extend %selected-language-option;
+}
+
+// .card__overflow {
+//   @extend %margin-top-off;
+//   display: none;
+// }
+//
+// .switch:checked ~ .card__overflow {
+//   @extend %blur-behind;
+//   @extend %flex;
+//   position: fixed;
+//   z-index: 10000;
+//   top: 0;
+//   right: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   background: darken(rgba(map-get($color, dark), .9), 15);
+//   align-items: center;
+//   justify-content: center;
+// }
+//
+// .card--billboard {
+//   overflow: scroll;
+//   max-width: ratio(7, rem);
+//   max-height: 100vh;
+//   padding: ratio(3, vh);
+//   background: map-get($color, bright);
+//   flex: 1 70vw;
+//
+//   @include media('>=small') {
+//     padding: ratio(2, rem);
+//   }
+// }

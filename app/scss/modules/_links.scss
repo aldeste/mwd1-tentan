@@ -1,0 +1,39 @@
+%link--decoration {
+  @extend %has-shadow-focus-effect;
+  text-decoration: none;
+}
+
+%link {
+  @extend %link--decoration;
+}
+
+%link:hover,
+%link:focus,
+%link:active {
+  opacity: .8;
+}
+
+%link--bright {
+  @extend %bright-text-color;
+  @extend %link;
+}
+
+%link--bright:hover,
+%link--bright:focus,
+%link--bright:active {
+  color: map-get($color, brightest);
+}
+
+%link--button {
+  @extend %link--decoration;
+  display: inline-block;
+}
+
+%link--neutral {
+  @extend %link--decoration;
+  color: inherit;
+}
+
+%link--meta {
+  font-size: ratio(-1, rem);
+}

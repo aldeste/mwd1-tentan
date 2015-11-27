@@ -1,0 +1,10 @@
+.footer {
+  @extend %flex;
+  @extend %margin-top-off;
+  color: map-get($color-defs, footer-text);
+  background: map-get($color-defs, footer);
+  align-items: center;
+  flex: 1 100vw;
+  @extend %flex-flow__column-wrap;
+  justify-content: center;
+}

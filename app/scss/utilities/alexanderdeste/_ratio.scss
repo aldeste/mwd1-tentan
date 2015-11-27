@@ -1,0 +1,36 @@
+$harmonic-ratio: 1.61803398875 !default;
+
+//
+// pow() - Raise number to the nth power
+//
+// @param {number} $base      The base number
+// @param {number} $exponents The exponent to which to raise $base
+//
+@function pow($base, $exponents) {
+  $raised: 1;
+  @if $exponents > 0 {
+    @for $i from 1 through $exponents {
+      $raised: $raised * $base;
+    }
+  } @else if $exponents < 0 {
+    @for $i from 1 through -$exponents {
+      $raised: $raised / $base;
+    }
+  }
+  @return $raised;
+}
+
+//
+// ratio() - Raise ratio to nth, optional unit.
+//
+// @param {number} $exponent  The exponent to which to raise ratio by
+// @param {string} $unit      Optional unit of measurement
+//
+@function ratio($exponent, $unit:null) {
+  $ratio: pow($harmonic-ratio, $exponent);
+  @if not $unit {
+    @return $ratio;
+  } @else {
+    @return $ratio + $unit;
+  }
+}

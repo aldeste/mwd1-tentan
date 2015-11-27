@@ -1,0 +1,74 @@
+// // SVG icons
+// .svghide {
+//   display: none;
+// }
+//
+// .icon {
+//   width: ratio(1, rem);
+//   height: ratio(1, rem);
+//   margin: ratio(-4, rem);
+//   vertical-align: middle;
+//   border-radius: 50%;
+// }
+//
+// .icon--large {
+//   width: ratio(3, rem);
+//   height: ratio(3, rem);
+// }
+//
+// .icon--logo {
+//   width: ratio(2, rem);
+//   height: ratio(1, rem);
+//   vertical-align: middle;
+//   fill: map-get($color, bright);
+//   mix-blend-mode: difference;
+// }
+//
+// %white-background {
+//   background: map-get($color, bright);
+// }
+//
+// .icon--facebook {
+//   @extend %white-background;
+//   fill: #3b5998;
+// }
+//
+// .icon--googleplus {
+//   @extend %white-background;
+//   fill: #d34836;
+// }
+//
+// .icon--twitter {
+//   @extend %white-background;
+//   fill: #4090ff;
+// }
+
+// Font icons
+
+@font-face {
+  font-family: 'icomoon';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/icomoon.eot');
+  src: url('../fonts/icomoon.eot#iefix') format('embedded-opentype'),
+         url('../fonts/icomoon.ttf') format('truetype'),
+         url('../fonts/icomoon.woff') format('woff'),
+         url('../fonts/icomoon.svg#icomoon') format('svg');
+}
+
+%ficon::before {
+  font-family: 'icomoon';
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  margin: 0 .1em;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  speak: none;
+}
+
+%ficon--check::before {
+  content: '\e900';
+}
